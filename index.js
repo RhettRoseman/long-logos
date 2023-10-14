@@ -5,10 +5,10 @@
 //   <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>
 
 // </svg>}
-
+const fs=require("fs");
 const inquirer = require("inquirer");
 const jest = require('jest');
-const shape = require("shape.js");
+const shape = require("./lib/shape");
 
 const generateSVG = ({text, textColor, shape, shapecolor}) => {
     `<?xml version="1.0" standalone="no"?>
@@ -25,33 +25,33 @@ inquirer
     {
 type: 'input',
 name: 'text',
-message: 'What do you want your image to be called?',
+message: 'Input image text',
 },
 {
    type: 'checkbox',
-   name: 'shapecolor',
+   name: 'list',
    message: 'What color is your shape going to be?', 
    choices: ['white', 'black', 'green', 'red', 'blue',]
 },
 {
-    type: 'checkbox',
+    type: 'list',
     name: 'textcolor',
-    message: 'What color is your? ',
+    message: 'What color is your text? ',
     choices: ['white','green', 'blue', 'red', 'black'],
 
 },
 {
-    type: 'checkbox',
+    type: 'list',
     name: 'shape',
     message: 'What shape do you want?',
     choices: ['square', 'rectangle', 'circle', 'triangle',]
 },
 ])
     .then((answers) => 
-    writeFile('logo.svg', generateSVG(answers)))
+    fs.writeFile('logo.svg', generateSVG(answers)))
     .then(() => console.log('Successfully wrote a svg file!'))
     .catch((err) => console.error(err));
-  
+    
 
 
 

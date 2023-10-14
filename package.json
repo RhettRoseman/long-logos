@@ -1,9 +1,29 @@
 {
   "dependencies": {
-    "inquirer": "^8.2.6",
-    "node": "^20.7.0"
-  },
+    "inquirer": "^8.2.6"
+    },
   "devDependencies": {
     "jest": "^29.7.0"
-  }
+  },
+  "name": "long-logos",
+  "version": "1.0.0",
+  "description": "svg generator",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "long-logos"
+  },
+  "keywords": [
+    "svg"
+  ],
+  "author": "RhettRoseman",
+  "license": "ISC"
 }
